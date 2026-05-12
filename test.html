@@ -1,0 +1,889 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>WE ARE FIXING | White Graphics — Galactic Campaign</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #000;
+            overflow-x: hidden;
+            font-family: 'Segoe UI', 'Poppins', 'Inter', system-ui, sans-serif;
+            color: #eef2ff;
+        }
+
+        /* CANVAS (GALACTIC ZOOM BACKGROUND) */
+        #canvas-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            outline: none;
+        }
+
+        /* MAIN CONTENT OVERLAY (SCROLLABLE) */
+        .content-overlay {
+            position: relative;
+            z-index: 10;
+            background: transparent;
+            min-height: 100vh;
+        }
+
+        /* HERO SECTION with Video & Glassmorphism */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1.5rem;
+        }
+
+        .hero-card {
+            max-width: 900px;
+            width: 100%;
+            background: rgba(10, 15, 30, 0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 180, 70, 0.5);
+            box-shadow: 0 25px 40px -12px rgba(0,0,0,0.6);
+        }
+
+        .video-wrapper {
+            background: #000;
+            border-radius: 1.5rem;
+            overflow: hidden;
+            margin-bottom: 1.5rem;
+            aspect-ratio: 16 / 9;
+        }
+
+        .video-wrapper iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            display: block;
+        }
+
+        .headline {
+            font-size: clamp(1.8rem, 6vw, 3rem);
+            font-weight: 800;
+            line-height: 1.2;
+            background: linear-gradient(135deg, #FFD966, #FFB347);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 1rem;
+        }
+
+        .subhead {
+            font-size: 1.1rem;
+            color: #ccd6f0;
+            border-left: 4px solid #FFB347;
+            padding-left: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn-primary {
+            background: #FFB347;
+            color: #0a0f1e;
+            font-weight: 700;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.2s;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn-primary:hover {
+            background: #e67e22;
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            border: 2px solid #FFB347;
+            color: #FFD966;
+            font-weight: 700;
+            padding: 0.9rem 1.8rem;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: 0.2s;
+            cursor: pointer;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 180, 70, 0.15);
+        }
+
+        /* SERVICES SECTION */
+        .services-section {
+            padding: 4rem 1.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(4px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            color: #FFD966;
+            text-shadow: 0 0 10px rgba(255,180,70,0.3);
+        }
+
+        .services-grid {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .service-card {
+            background: rgba(30, 40, 60, 0.8);
+            backdrop-filter: blur(4px);
+            padding: 1.2rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            font-weight: 600;
+            border: 1px solid rgba(255, 180, 70, 0.3);
+            transition: 0.2s;
+        }
+
+        .service-card:hover {
+            border-color: #FFB347;
+            transform: translateY(-3px);
+        }
+
+        /* STICKER & OFFER SECTION */
+        .offer-section {
+            padding: 4rem 1.5rem;
+            background: rgba(10, 15, 30, 0.85);
+            backdrop-filter: blur(8px);
+        }
+
+        .offer-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: rgba(18, 25, 45, 0.9);
+            border-radius: 2rem;
+            padding: 2rem;
+            border: 1px solid rgba(255, 180, 70, 0.4);
+        }
+
+        .sticker-preview {
+            background: #1e293b;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            text-align: center;
+            margin: 1.5rem 0;
+            border: 2px dashed #FFB347;
+        }
+
+        .sticker-img {
+            width: 140px;
+            height: 140px;
+            object-fit: contain;
+            background: white;
+            border-radius: 1.5rem;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .flex-btns {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin: 1rem 0;
+        }
+
+        .flex-btns button {
+            flex: 1;
+            background: #FFB347;
+            border: none;
+            color: #0a0f1e;
+            font-weight: 700;
+            padding: 0.8rem;
+            border-radius: 60px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .flex-btns button.btn-outline {
+            background: transparent;
+            border: 2px solid #FFB347;
+            color: #FFD966;
+        }
+
+        .discount-box {
+            background: #0f172a;
+            border-radius: 1.5rem;
+            padding: 1.2rem;
+            text-align: center;
+            border-left: 5px solid #FFB347;
+            margin: 1.5rem 0;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.9rem;
+            margin: 0.6rem 0;
+            border-radius: 1rem;
+            border: none;
+            background: #1e293b;
+            color: white;
+            font-size: 0.9rem;
+        }
+
+        .success-msg {
+            background: #2e7d32;
+            padding: 0.8rem;
+            border-radius: 1rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #323232e6;
+            backdrop-filter: blur(8px);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            z-index: 1000;
+            display: none;
+        }
+
+        .trust-badge {
+            background: rgba(255, 180, 70, 0.15);
+            padding: 1rem;
+            border-radius: 1.5rem;
+            text-align: center;
+            margin: 2rem 0 1rem;
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.7rem;
+            opacity: 0.7;
+            background: rgba(0,0,0,0.5);
+        }
+
+        /* GALACTIC TEXT OVERLAY - FLOATING FREELY, NO BOX */
+        .galaxy-text-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+        }
+
+        .galaxy-text-overlay.visible {
+            opacity: 1;
+        }
+
+        .galaxy-text-box {
+            text-align: center;
+            transform: scale(0.85);
+            transition: transform 0.8s cubic-bezier(0.2, 0.9, 0.4, 1.2);
+        }
+
+        .galaxy-text-overlay.visible .galaxy-text-box {
+            transform: scale(1);
+        }
+
+        .galaxy-we-are {
+            font-size: clamp(2rem, 8vw, 4.8rem);
+            font-weight: 800;
+            letter-spacing: 12px;
+            color: #ffcc66;
+            text-shadow: 
+                0 0 30px rgba(255, 80, 0, 0.9),
+                0 0 60px rgba(255, 0, 0, 0.6),
+                0 0 90px rgba(255, 50, 0, 0.4);
+            margin-bottom: 0.5rem;
+            animation: textPulse 3s infinite ease-in-out;
+        }
+
+        .galaxy-fixing {
+            font-size: clamp(3rem, 12vw, 7.5rem);
+            font-weight: 900;
+            letter-spacing: 16px;
+            background: linear-gradient(135deg, #ff4422, #ff0000, #cc0000, #ff3311);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 
+                0 0 40px rgba(255, 0, 0, 0.8),
+                0 0 80px rgba(255, 50, 0, 0.5),
+                0 0 120px rgba(255, 0, 0, 0.3);
+            animation: textPulse 3s infinite ease-in-out 0.3s;
+        }
+
+        @keyframes textPulse {
+            0%, 100% {
+                text-shadow: 0 0 30px rgba(255, 80, 0, 0.7), 0 0 60px rgba(255, 0, 0, 0.5);
+                opacity: 0.95;
+            }
+            50% {
+                text-shadow: 0 0 50px rgba(255, 100, 30, 1), 0 0 90px rgba(255, 30, 0, 0.8);
+                opacity: 1;
+            }
+        }
+
+        .scroll-hint {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(8px);
+            border-radius: 40px;
+            padding: 8px 20px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            color: rgba(255,255,200,0.7);
+            border: 1px solid rgba(255,100,50,0.5);
+            pointer-events: none;
+            font-family: monospace;
+            transition: opacity 0.5s ease;
+            white-space: nowrap;
+        }
+
+        .gradient-edge {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(0,0,0,0.6), transparent);
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        @media (max-width: 700px) {
+            .galaxy-we-are { letter-spacing: 6px; }
+            .galaxy-fixing { letter-spacing: 8px; }
+            .scroll-hint { font-size: 0.6rem; padding: 5px 12px; }
+            .hero-card { padding: 1.5rem; }
+            .service-card { padding: 0.8rem; font-size: 0.9rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- CANVAS FOR GALACTIC ZOOM THEME (3D BACKGROUND) -->
+    <div id="canvas-container"></div>
+    <div class="gradient-edge"></div>
+    <div class="scroll-hint" id="scrollHint">▼ SCROLL · ENTER THE CORE ▼</div>
+
+    <!-- GALACTIC TEXT OVERLAY - FLOATING FREELY, NO BOX -->
+    <div class="galaxy-text-overlay" id="galaxyTextOverlay">
+        <div class="galaxy-text-box">
+            <div class="galaxy-we-are">WE ARE</div>
+            <div class="galaxy-fixing">FIXING</div>
+        </div>
+    </div>
+
+    <!-- MAIN SCROLLABLE CONTENT -->
+    <div class="content-overlay">
+        <!-- HERO / INTRO SECTION with Video -->
+        <div class="hero">
+            <div class="hero-card">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?rel=0" 
+                            title="White Graphics - We Are Fixing campaign"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                    </iframe>
+                </div>
+                <h1 class="headline">Your ads aren't broken.<br>They're just not working.</h1>
+                <div class="subhead">
+                    We Are Fixing. One campaign at a time.<br>
+                    Watch the film, then get a free ad diagnosis.
+                </div>
+                <div class="btn-group">
+                    <button class="btn-primary" id="freeDiagnosisBtn">📋 Get Free Ad Diagnosis</button>
+                    <button class="btn-secondary" id="contactSalesBtn">📞 Contact Sales</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- SERVICES SECTION -->
+        <div class="services-section">
+            <h2 class="section-title">🔧 What We Fix</h2>
+            <div class="services-grid">
+                <div class="service-card">📢 Advertising campaigns</div>
+                <div class="service-card">🎥 Video production & shooting</div>
+                <div class="service-card">📈 Digital marketing</div>
+                <div class="service-card">🌐 Website development & fixing</div>
+                <div class="service-card">🖨️ Creative printing</div>
+                <div class="service-card">📱 Social media management</div>
+            </div>
+            <div class="trust-badge">
+                ⚡ Trusted by brands across Saudi Arabia • 50+ campaigns fixed in 2024
+            </div>
+        </div>
+
+        <!-- STICKER & 25% OFF CLAIM SECTION -->
+        <div class="offer-section">
+            <div class="offer-container">
+                <span style="background:#FFB34720; border:1px solid #FFB347; border-radius:100px; padding:0.3rem 1rem; font-size:0.8rem;">🔥 STREET EXCLUSIVE</span>
+                <h2 style="font-size:1.8rem; margin:1rem 0 0.5rem;">WE ARE FIXING</h2>
+                <p>Scan the sticker → claim your reward → fix with 25% OFF.</p>
+                
+                <div class="sticker-preview">
+                    <img id="stickerImage" class="sticker-img" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'%3E%3Crect width='500' height='500' fill='%23FFB347'/%3E%3Ccircle cx='250' cy='250' r='220' fill='none' stroke='%23ffffff' stroke-width='12'/%3E%3Ctext x='50%25' y='45%25' font-size='70' font-family='Arial, sans-serif' fill='%23000' text-anchor='middle' font-weight='bold'%3EWE ARE%3C/text%3E%3Ctext x='50%25' y='70%25' font-size='80' font-family='Arial, sans-serif' fill='%23000' text-anchor='middle' font-weight='bold'%3EFIXING%3C/text%3E%3Ctext x='50%25' y='88%25' font-size='36' fill='%23333' text-anchor='middle'%3E⚡ sticker ⚡%3C/text%3E%3C/svg%3E" alt="We Are Fixing Sticker">
+                    <p><strong>📌 Your exclusive sticker</strong><br>Download & share on your story</p>
+                    <button id="downloadStickerBtn" class="btn-primary" style="width:100%;">⬇️ DOWNLOAD STICKER (PNG)</button>
+                </div>
+
+                <div class="flex-btns">
+                    <button id="shareToIGBtn">📱 SHARE TO IG STORY</button>
+                    <button id="copyUsernameBtn" class="btn-outline">📋 COPY @USERNAME</button>
+                </div>
+                <p style="font-size: 0.7rem; text-align: center;">✅ Tap "Share to IG Story" → opens story editor → paste sticker from gallery & add @WeAreFixing</p>
+
+                <div class="discount-box">
+                    <p><strong>🎁 GET 25% OFF</strong><br>
+                    1️⃣ Download our sticker<br>
+                    2️⃣ Post it on Instagram Story + tag <strong>@WeAreFixing</strong><br>
+                    3️⃣ Upload proof or paste story link below ⬇️</p>
+                </div>
+
+                <form id="discountForm">
+                    <input type="email" id="userEmail" placeholder="Your email address" required>
+                    <input type="url" id="storyLink" placeholder="Instagram story link (optional)">
+                    <input type="file" id="screenshotUpload" accept="image/*">
+                    <button type="submit" id="claimDiscountBtn" style="background:#2e7d32; width:100%; padding:0.9rem; border-radius:60px; border:none; color:white; font-weight:700; cursor:pointer;">✨ CLAIM 25% DISCOUNT</button>
+                </form>
+                <div id="successMessage" class="success-msg"></div>
+            </div>
+        </div>
+
+        <footer>
+            White Graphics – "We Are Fixing" campaign<br>
+            📍 Riyadh, Jeddah, Dammam | 📧 hello@whitegraphics.com
+        </footer>
+    </div>
+
+    <div id="toastMsg" class="toast">✨ Copied to clipboard</div>
+
+    <!-- THREE.JS GALACTIC ZOOM SCRIPT (FULL THEME) -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.128.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.128.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module">
+        import * as THREE from 'three';
+        import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+        import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+        import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+        
+        // --- setup ---
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        scene.background = new THREE.Color(0x010008);
+        scene.fog = new THREE.FogExp2(0x010008, 0.0002);
+
+        const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+        camera.position.set(0, 0.8, 14);
+        camera.lookAt(0, 0, 0);
+
+        const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.setPixelRatio(window.devicePixelRatio);
+        renderer.toneMapping = THREE.ReinhardToneMapping;
+        renderer.toneMappingExposure = 1.2;
+        container.appendChild(renderer.domElement);
+
+        // Bloom for galaxy glow
+        const renderScene = new RenderPass(scene, camera);
+        const bloomPass = new UnrealBloomPass(new THREE.Vector2(window.innerWidth, window.innerHeight), 1.3, 0.4, 0.8);
+        bloomPass.threshold = 0.08;
+        bloomPass.strength = 1.0;
+        bloomPass.radius = 0.6;
+        const effectComposer = new EffectComposer(renderer);
+        effectComposer.addPass(renderScene);
+        effectComposer.addPass(bloomPass);
+
+        // --- Milky Way Galaxy ---
+        const galaxyGroup = new THREE.Group();
+        
+        // Galactic Core
+        const coreMat = new THREE.MeshStandardMaterial({
+            color: 0xff8866,
+            emissive: 0xff4422,
+            emissiveIntensity: 0.8,
+            roughness: 0.3
+        });
+        const coreSphere = new THREE.Mesh(new THREE.SphereGeometry(0.55, 96, 96), coreMat);
+        galaxyGroup.add(coreSphere);
+        
+        // Core halo
+        const coreHaloMat = new THREE.MeshBasicMaterial({
+            color: 0xff8866,
+            transparent: true,
+            opacity: 0.35,
+            side: THREE.BackSide
+        });
+        const coreHalo = new THREE.Mesh(new THREE.SphereGeometry(0.82, 64, 64), coreHaloMat);
+        galaxyGroup.add(coreHalo);
+        
+        // Spiral arms particles
+        const armCount = 18000;
+        const armPositions = new Float32Array(armCount * 3);
+        const armColors = new Float32Array(armCount * 3);
+        
+        for (let i = 0; i < armCount; i++) {
+            const armIdx = Math.floor(Math.random() * 4);
+            const radius = 0.7 + Math.pow(Math.random(), 1.3) * 3.6;
+            const spiralAngle = radius * 5.0;
+            const armOffset = (armIdx / 4) * Math.PI * 2;
+            let angle = spiralAngle + armOffset + (Math.random() - 0.5) * 0.7;
+            
+            const x = Math.cos(angle) * radius;
+            const z = Math.sin(angle) * radius;
+            const y = Math.sin(angle * 2) * 0.06 * (1 - radius/4) + (Math.random() - 0.5) * 0.1;
+            
+            armPositions[i*3] = x;
+            armPositions[i*3+1] = y;
+            armPositions[i*3+2] = z;
+            
+            let r, g, b;
+            if (radius < 1.0) {
+                r = 1.0;
+                g = 0.6 + Math.random() * 0.3;
+                b = 0.3 + Math.random() * 0.3;
+            } else if (radius > 2.8) {
+                r = 0.5 + Math.random() * 0.3;
+                g = 0.6 + Math.random() * 0.3;
+                b = 0.9 + Math.random() * 0.3;
+            } else {
+                r = 0.9 + Math.random() * 0.3;
+                g = 0.8 + Math.random() * 0.3;
+                b = 0.8 + Math.random() * 0.3;
+            }
+            armColors[i*3] = Math.min(1.0, r);
+            armColors[i*3+1] = Math.min(1.0, g);
+            armColors[i*3+2] = Math.min(1.0, b);
+        }
+        
+        const armGeo = new THREE.BufferGeometry();
+        armGeo.setAttribute('position', new THREE.BufferAttribute(armPositions, 3));
+        armGeo.setAttribute('color', new THREE.BufferAttribute(armColors, 3));
+        const armMat = new THREE.PointsMaterial({ size: 0.032, vertexColors: true, blending: THREE.AdditiveBlending });
+        const armStars = new THREE.Points(armGeo, armMat);
+        galaxyGroup.add(armStars);
+        
+        // Dense core stars
+        const coreStarCount = 5000;
+        const corePos = new Float32Array(coreStarCount * 3);
+        const coreCol = new Float32Array(coreStarCount * 3);
+        for (let i = 0; i < coreStarCount; i++) {
+            const r = Math.pow(Math.random(), 1.4) * 1.1;
+            const theta = Math.random() * Math.PI * 2;
+            const phi = Math.acos(2 * Math.random() - 1);
+            corePos[i*3] = r * Math.sin(phi) * Math.cos(theta);
+            corePos[i*3+1] = r * Math.sin(phi) * Math.sin(theta) * 0.6;
+            corePos[i*3+2] = r * Math.cos(phi);
+            coreCol[i*3] = 1.0;
+            coreCol[i*3+1] = 0.6 + Math.random() * 0.4;
+            coreCol[i*3+2] = 0.3 + Math.random() * 0.4;
+        }
+        const coreStarGeo = new THREE.BufferGeometry();
+        coreStarGeo.setAttribute('position', new THREE.BufferAttribute(corePos, 3));
+        coreStarGeo.setAttribute('color', new THREE.BufferAttribute(coreCol, 3));
+        const coreStarMat = new THREE.PointsMaterial({ size: 0.028, vertexColors: true, blending: THREE.AdditiveBlending });
+        const coreStarsCluster = new THREE.Points(coreStarGeo, coreStarMat);
+        galaxyGroup.add(coreStarsCluster);
+        
+        scene.add(galaxyGroup);
+        
+        // Background stars
+        const bgCount = 3000;
+        const bgGeo = new THREE.BufferGeometry();
+        const bgPos = new Float32Array(bgCount * 3);
+        for (let i = 0; i < bgCount; i++) {
+            bgPos[i*3] = (Math.random() - 0.5) * 200;
+            bgPos[i*3+1] = (Math.random() - 0.5) * 130;
+            bgPos[i*3+2] = (Math.random() - 0.5) * 120 - 50;
+        }
+        bgGeo.setAttribute('position', new THREE.BufferAttribute(bgPos, 3));
+        const bgMat = new THREE.PointsMaterial({ color: 0xaaccff, size: 0.08, transparent: true, opacity: 0.6 });
+        const bgStars = new THREE.Points(bgGeo, bgMat);
+        scene.add(bgStars);
+        
+        // Lighting
+        const ambient = new THREE.AmbientLight(0x111122, 0.5);
+        scene.add(ambient);
+        const coreLight = new THREE.PointLight(0xff6644, 1.0, 25);
+        coreLight.position.set(0, 0, 0);
+        scene.add(coreLight);
+        const fillLight = new THREE.PointLight(0x88aaff, 0.4);
+        fillLight.position.set(2, 1, 4);
+        scene.add(fillLight);
+        
+        // Shooting stars
+        let meteors = [];
+        function addMeteor() {
+            const meteorGeo = new THREE.BufferGeometry();
+            const verts = new Float32Array([0,0,0, 0.5,0.1,0]);
+            meteorGeo.setAttribute('position', new THREE.BufferAttribute(verts, 3));
+            const meteorMat = new THREE.LineBasicMaterial({ color: 0xffaa77, transparent: true });
+            const meteor = new THREE.Line(meteorGeo, meteorMat);
+            meteor.userData = {
+                life: 1.0,
+                speed: new THREE.Vector3(-(Math.random() * 4 + 1.5), -(Math.random() * 1.5 + 0.3), (Math.random() - 0.5) * 1),
+                pos: new THREE.Vector3((Math.random() * 16 - 5), (Math.random() * 8 + 2), (Math.random() - 0.5) * 10)
+            };
+            meteor.position.copy(meteor.userData.pos);
+            scene.add(meteor);
+            meteors.push(meteor);
+        }
+        
+        function updateMeteors() {
+            for (let i = 0; i < meteors.length; i++) {
+                const m = meteors[i];
+                m.userData.life -= 0.015;
+                if (m.userData.life <= 0 || m.position.x < -18 || m.position.y < -10) {
+                    scene.remove(m);
+                    meteors.splice(i,1);
+                    i--;
+                    continue;
+                }
+                m.position.x += m.userData.speed.x * 0.12;
+                m.position.y += m.userData.speed.y * 0.12;
+                m.position.z += m.userData.speed.z * 0.08;
+                m.material.opacity = m.userData.life * 0.8;
+                const scaleLen = 0.6 + m.userData.life * 1.2;
+                m.scale.set(scaleLen, 1, 1);
+            }
+            if (Math.random() < 0.006 && meteors.length < 3) addMeteor();
+        }
+        
+        // Scroll-driven zoom
+        let scrollProgress = 0;
+        let targetProgress = 0;
+        const startDist = 14.0;
+        const endDist = 1.3;
+        
+        function handleScroll() {
+            const scrollY = window.scrollY;
+            const maxScroll = document.body.scrollHeight - window.innerHeight;
+            let raw = maxScroll > 0 ? scrollY / maxScroll : 0;
+            raw = Math.min(1.0, Math.max(0.0, raw));
+            targetProgress = raw;
+            
+            const hint = document.getElementById('scrollHint');
+            if (hint) {
+                if (raw > 0.1) hint.style.opacity = '0';
+                else hint.style.opacity = '1';
+            }
+            
+            // Show text when zoom reaches near core
+            const textOverlay = document.getElementById('galaxyTextOverlay');
+            if (textOverlay) {
+                if (raw > 0.72) {
+                    textOverlay.classList.add('visible');
+                } else {
+                    textOverlay.classList.remove('visible');
+                }
+            }
+        }
+        
+        const spacer = document.createElement('div');
+        spacer.style.height = '400vh';
+        spacer.style.width = '100%';
+        spacer.style.position = 'relative';
+        spacer.style.zIndex = '2';
+        spacer.style.background = 'transparent';
+        spacer.style.pointerEvents = 'none';
+        document.body.appendChild(spacer);
+        document.body.style.height = 'auto';
+        document.body.style.margin = 0;
+        document.body.style.overflowX = 'hidden';
+        window.addEventListener('scroll', handleScroll);
+        
+        let currentZoom = 0;
+        
+        function updateCamera() {
+            currentZoom += (targetProgress - currentZoom) * 0.08;
+            const t = currentZoom;
+            const easeT = t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+            const dist = startDist * (1 - easeT) + endDist * easeT;
+            const yPos = 0.8 * (1 - easeT) + 0.05 * easeT;
+            camera.position.z = dist;
+            camera.position.y = yPos;
+            camera.position.x = Math.sin(easeT * Math.PI * 0.5) * 0.2;
+            camera.lookAt(0, easeT * 0.15, 0);
+            coreLight.intensity = 1.0 + easeT * 1.8;
+            coreMat.emissiveIntensity = 0.7 + easeT * 1.3;
+            galaxyGroup.rotation.y = easeT * 0.7;
+            galaxyGroup.rotation.x = easeT * 0.12;
+        }
+        
+        let time = 0;
+        function animateGalaxy() {
+            bgStars.rotation.y += 0.0001;
+            if (currentZoom < 0.9) {
+                galaxyGroup.rotation.z = Math.sin(time * 0.08) * 0.03;
+            }
+        }
+        
+        const vignetteStyle = document.createElement('style');
+        vignetteStyle.textContent = `
+            #canvas-container::after {
+                content: '';
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                background: radial-gradient(circle at center, transparent 45%, rgba(0,0,0,0.6) 100%);
+                z-index: 6;
+            }
+        `;
+        document.head.appendChild(vignetteStyle);
+        
+        function animate() {
+            requestAnimationFrame(animate);
+            time++;
+            updateCamera();
+            updateMeteors();
+            animateGalaxy();
+            if (Math.random() < 0.003 && meteors.length < 3) addMeteor();
+            effectComposer.render();
+        }
+        
+        setTimeout(() => {
+            for (let i = 0; i < 3; i++) setTimeout(() => addMeteor(), i * 400);
+        }, 500);
+        
+        window.addEventListener('resize', () => {
+            camera.aspect = window.innerWidth / window.innerHeight;
+            camera.updateProjectionMatrix();
+            effectComposer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setSize(window.innerWidth, window.innerHeight);
+        });
+        
+        animate();
+        console.log('🌌 WE ARE FIXING | Complete landing page with floating galactic text');
+    </script>
+
+    <!-- INTERACTION SCRIPT (Sticker, Forms, CTA) -->
+    <script>
+        const INSTAGRAM_USERNAME = "@WeAreFixing";
+        const DISCOUNT_CODE = "FIX25OFF";
+
+        function showToast(msg) {
+            const toast = document.getElementById('toastMsg');
+            toast.innerText = msg;
+            toast.style.display = 'block';
+            setTimeout(() => {
+                toast.style.display = 'none';
+            }, 2800);
+        }
+
+        document.getElementById('downloadStickerBtn')?.addEventListener('click', () => {
+            const svgString = `<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 500 500'><rect width='500' height='500' fill='%23FFB347'/><circle cx='250' cy='250' r='220' fill='none' stroke='%23ffffff' stroke-width='12'/><text x='50%25' y='45%25' font-size='70' font-family='Arial, sans-serif' fill='%23000' text-anchor='middle' font-weight='bold'>WE ARE</text><text x='50%25' y='70%25' font-size='80' font-family='Arial, sans-serif' fill='%23000' text-anchor='middle' font-weight='bold'>FIXING</text><text x='50%25' y='88%25' font-size='36' fill='%23333' text-anchor='middle'>⚡ sticker ⚡</text></svg>`;
+            const blob = new Blob([svgString], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'we_are_fixing_sticker.svg';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            showToast("✅ Sticker downloaded! Post it on your story!");
+        });
+
+        document.getElementById('copyUsernameBtn')?.addEventListener('click', () => {
+            navigator.clipboard.writeText(INSTAGRAM_USERNAME).then(() => {
+                showToast(`📋 Copied ${INSTAGRAM_USERNAME} to clipboard!`);
+            }).catch(() => alert("Press Ctrl+C to copy: " + INSTAGRAM_USERNAME));
+        });
+
+        document.getElementById('shareToIGBtn')?.addEventListener('click', () => {
+            showToast("Step 1: Save the sticker image first. Step 2: We'll open Instagram.");
+            setTimeout(() => {
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                if (isMobile) {
+                    window.location.href = "instagram-stories://share";
+                    setTimeout(() => showToast("If Instagram didn't open, open it manually."), 800);
+                } else {
+                    alert("📱 Please use your mobile phone to share to Instagram Story.");
+                }
+            }, 300);
+        });
+
+        document.getElementById('discountForm')?.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('userEmail').value.trim();
+            if (!email) {
+                alert("Please enter your email to receive the 25% OFF code.");
+                return;
+            }
+            const successDiv = document.getElementById('successMessage');
+            successDiv.style.display = 'block';
+            successDiv.innerHTML = `
+                <strong>🎉 Almost there! You're a Fixer!</strong><br>
+                ✅ Request received. Our team will verify your Instagram story.<br>
+                🎁 Once verified, we'll email your <strong>25% OFF code</strong> to ${email}.<br>
+                💡 <em>Demo immediate code: use <strong>${DISCOUNT_CODE}</strong> at checkout.</em>
+            `;
+            document.getElementById('storyLink').value = '';
+            document.getElementById('screenshotUpload').value = '';
+        });
+
+        document.getElementById('freeDiagnosisBtn')?.addEventListener('click', () => {
+            document.querySelector('.offer-section')?.scrollIntoView({ behavior: 'smooth' });
+        });
+        document.getElementById('contactSalesBtn')?.addEventListener('click', () => {
+            alert("Contact us: sales@whitegraphics.com | WhatsApp: +966 5X XXX XXXX");
+        });
+    </script>
+</body>
+</html>
