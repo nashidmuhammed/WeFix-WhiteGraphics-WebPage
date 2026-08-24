@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WE ARE FIXING – Join the Campaign</title>
+    <!-- Font Awesome (free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        /* ----- RESET & BASE ----- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0b0e14;
+            color: #f0f4fa;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* ----- HEADER / HERO ----- */
+        .hero {
+            text-align: center;
+            padding: 60px 20px 50px;
+            background: linear-gradient(145deg, #141a24, #1e2733);
+            border-radius: 40px;
+            border: 1px solid #2f3b4a;
+            margin-bottom: 50px;
+        }
+
+        .badge {
+            display: inline-block;
+            background: #f1c40f;
+            color: #0b0e14;
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            padding: 6px 20px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, #f5b041, #f1c40f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .sub-headline {
+            font-size: 1.5rem;
+            color: #f1c40f;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #b0c4de;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            line-height: 1.8;
+        }
+
+        .hero .description i {
+            color: #f1c40f;
+            margin: 0 4px;
+        }
+
+        .cta-main {
+            display: inline-block;
+            background: linear-gradient(135deg, #f1c40f, #f5b041);
+            color: #0b0e14;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 45px;
+            border-radius: 60px;
+            text-decoration: none;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.25);
+            border: none;
+            cursor: pointer;
+        }
+
+        .cta-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(241, 196, 15, 0.35);
+            background: linear-gradient(135deg, #f5b041, #f39c12);
+        }
+
+        .cta-main i {
+            margin-right: 10px;
+        }
+
+        /* ----- SECTION TITLE ----- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .section-title span {
+            color: #f1c40f;
+        }
+
+        .section-sub {
+            text-align: center;
+            color: #b0c4de;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+        }
+
+        /* ----- HOW IT WORKS (GRID) ----- */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .step-card {
+            background: #141a24;
+            padding: 30px 25px;
+            border-radius: 24px;
+            border: 1px solid #2a3340;
+            text-align: center;
+            transition: 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: #f1c40f;
+            transform: translateY(-5px);
+        }
+
+        .step-card .step-number {
+            display: inline-block;
+            background: #f1c40f;
+            color: #0b0e14;
+            font-weight: 800;
+            font-size: 1.2rem;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: #f5f9ff;
+        }
+
+        .step-card p {
+            color: #b0c4de;
+            font-size: 0.95rem;
+        }
+
+        .step-card i {
+            color: #f1c40f;
+            margin-right: 6px;
+        }
+
+        /* ----- BENEFITS (GRID) ----- */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+
+        .benefit-card {
+            background: #141a24;
+            padding: 25px 25px;
+            border-radius: 24px;
+            border: 1px solid #2a3340;
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            transition: 0.3s ease;
+        }
+
+        .benefit-card:hover {
+            border-color: #f1c40f;
+        }
+
+        .benefit-card i {
+            font-size: 2rem;
+            color: #f1c40f;
+            min-width: 45px;
+            margin-top: 4px;
+        }
+
+        .benefit-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 6px;
+            color: #f5f9ff;
+        }
+
+        .benefit-card p {
+            color: #b0c4de;
+            font-size: 0.95rem;
+        }
+
+        /* ----- VIDEO SECTION ----- */
+        .video-section {
+            background: #141a24;
+            border-radius: 30px;
+            padding: 40px 35px;
+            border: 1px solid #2a3340;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+        }
+
+        .video-section h2 i {
+            color: #f1c40f;
+            margin-right: 10px;
+        }
+
+        .video-section .video-sub {
+            color: #b0c4de;
+            margin-bottom: 25px;
+        }
+
+        .video-placeholder {
+            background: #0f151e;
+            border-radius: 20px;
+            aspect-ratio: 16 / 9;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            border: 2px dashed #2f3b4a;
+            color: #5a6e8a;
+            cursor: pointer;
+            transition: 0.3s;
+            padding: 20px;
+        }
+
+        .video-placeholder:hover {
+            border-color: #f1c40f;
+        }
+
+        .video-placeholder i {
+            font-size: 4rem;
+            color: #f1c40f;
+            opacity: 0.7;
+        }
+
+        .video-placeholder span {
+            font-size: 1rem;
+            font-weight: 500;
+            background: #1e2733;
+            padding: 8px 24px;
+            border-radius: 50px;
+            border: 1px solid #2f3b4a;
+            color: #b0c4de;
+        }
+
+        .video-placeholder small {
+            font-size: 0.85rem;
+        }
+
+        /* ----- FORM SECTION ----- */
+        .form-section {
+            background: #141a24;
+            border-radius: 30px;
+            padding: 45px 40px;
+            border: 1px solid #2a3340;
+            margin-bottom: 30px;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 8px;
+        }
+
+        .form-section h2 span {
+            color: #f1c40f;
+        }
+
+        .form-section .form-sub {
+            text-align: center;
+            color: #b0c4de;
+            margin-bottom: 30px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 6px;
+            color: #d0dcec;
+        }
+
+        .form-group label i {
+            color: #f1c40f;
+            margin-right: 8px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 18px;
+            border-radius: 14px;
+            border: 1px solid #2a3340;
+            background: #0f151e;
+            color: #f0f4fa;
+            font-size: 1rem;
+            font-family: inherit;
+            transition: 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #f1c40f;
+            box-shadow: 0 0 0 3px rgba(241, 196, 15, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .form-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #f1c40f, #f5b041);
+            color: #0b0e14;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 16px 40px;
+            border-radius: 60px;
+            border: none;
+            cursor: pointer;
+            transition: 0.25s ease;
+            box-shadow: 0 8px 25px rgba(241, 196, 15, 0.2);
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .form-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(241, 196, 15, 0.3);
+            background: linear-gradient(135deg, #f5b041, #f39c12);
+        }
+
+        .form-btn i {
+            margin-right: 10px;
+        }
+
+        /* ----- FOOTER ----- */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 1px solid #1e2733;
+            color: #5a6e8a;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        .footer .social-links {
+            margin-top: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+        }
+
+        .footer .social-links a {
+            color: #7a8ea8;
+            font-size: 1.2rem;
+            transition: 0.3s;
+        }
+
+        .footer .social-links a:hover {
+            color: #f1c40f;
+        }
+
+        /* ----- RESPONSIVE ----- */
+        @media (max-width: 800px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            .hero .sub-headline {
+                font-size: 1.2rem;
+            }
+            .grid-3 {
+                grid-template-columns: 1fr 1fr;
+            }
+            .grid-2 {
+                grid-template-columns: 1fr;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+            .form-section {
+                padding: 30px 20px;
+            }
+            .video-section {
+                padding: 25px 18px;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .grid-3 {
+                grid-template-columns: 1fr;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero .description {
+                font-size: 1rem;
+            }
+            .section-title {
+                font-size: 1.7rem;
+            }
+            .cta-main {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- ==================== HERO SECTION ==================== -->
+        <section class="hero">
+            <div class="badge">
+                <i class="fas fa-bullhorn" style="margin-right: 6px;"></i> Community Campaign
+            </div>
+            <h1>WE ARE <span>FIXING</span></h1>
+            <p class="sub-headline">Join Our Campaign</p>
+            <p class="description">
+                <i class="fas fa-store"></i>
+                Make your café <strong style="color: #f1c40f;">more visible</strong> and
+                <strong style="color: #f1c40f;">build a community</strong> around your brand
+                <i class="fas fa-heart" style="color: #f1c40f;"></i>
+            </p>
+            <a href="#form" class="cta-main">
+                <i class="fas fa-rocket"></i> Join the Campaign
+            </a>
+        </section>
+
+        <!-- ==================== HOW IT WORKS ==================== -->
+        <h2 class="section-title">How It <span>Works</span></h2>
+        <p class="section-sub">Simple steps to join and grow your café's presence</p>
+
+        <div class="grid-3">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3><i class="fas fa-qrcode"></i> Scan &amp; Learn</h3>
+                <p>Scan the QR code or visit our landing page to understand the campaign and its benefits.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3><i class="fas fa-pen-fancy"></i> Fill the Form</h3>
+                <p>Submit your café details through our lead generation form. We'll review and reach out.</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3><i class="fas fa-handshake"></i> Launch Together</h3>
+                <p>We provide QR codes, frames, and campaign support. You get visibility and community engagement.</p>
+            </div>
+        </div>
+
+        <!-- ==================== BENEFITS ==================== -->
+        <h2 class="section-title">Why <span>Join?</span></h2>
+        <p class="section-sub">What your café gains by participating</p>
+
+        <div class="grid-2">
+            <div class="benefit-card">
+                <i class="fas fa-eye"></i>
+                <div>
+                    <h4>More Visibility</h4>
+                    <p>Every customer story tags your café, exposing your brand to their followers.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-users"></i>
+                <div>
+                    <h4>Community Engagement</h4>
+                    <p>Build a loyal community around your café through authentic customer stories.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-bullhorn"></i>
+                <div>
+                    <h4>Free Promotion</h4>
+                    <p>We handle the campaign design, QR codes, and website — at zero cost to you.</p>
+                </div>
+            </div>
+            <div class="benefit-card">
+                <i class="fas fa-rotate-left"></i>
+                <div>
+                    <h4>Returning Customers</h4>
+                    <p>Customers return to redeem their 10% discount, increasing repeat visits.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- ==================== VIDEO SECTION ==================== -->
+        <div class="video-section">
+            <h2><i class="fas fa-play-circle"></i> Watch the Campaign Video</h2>
+            <p class="video-sub">Learn how "WE ARE FIXING" works in 90 seconds</p>
+            <div class="video-placeholder" onclick="alert('🎬 Video will play here – 90 seconds.')">
+                <i class="fas fa-play-circle"></i>
+                <span>▶️ 1:30</span>
+                <small>Click to watch the introduction video</small>
+            </div>
+        </div>
+
+        <!-- ==================== LEAD GENERATION FORM ==================== -->
+        <div class="form-section" id="form">
+            <h2>Join <span>WE ARE FIXING</span></h2>
+            <p class="form-sub">Fill in your details and we'll reach out to launch the campaign at your café</p>
+
+            <form onsubmit="alert('✅ Thank you! We will contact you within 24 hours.'); return false;">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cafeName"><i class="fas fa-store"></i> Café Name *</label>
+                        <input type="text" id="cafeName" placeholder="e.g. Al-Riyadh Café" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="ownerName"><i class="fas fa-user"></i> Owner Name *</label>
+                        <input type="text" id="ownerName" placeholder="Full name" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone Number *</label>
+                        <input type="tel" id="phone" placeholder="05xxxxxxxx" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email *</label>
+                        <input type="email" id="email" placeholder="owner@cafe.com" required />
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="location"><i class="fas fa-location-dot"></i> Café Location *</label>
+                        <input type="text" id="location" placeholder="City / Area" required />
+                    </div>
+                    <div class="form-group">
+                        <label for="instagram"><i class="fab fa-instagram"></i> Instagram Handle</label>
+                        <input type="text" id="instagram" placeholder="@yourcafe" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="tables"><i class="fas fa-chair"></i> Number of Tables</label>
+                    <input type="number" id="tables" placeholder="e.g. 15" />
+                </div>
+
+                <div class="form-group">
+                    <label for="message"><i class="fas fa-comment"></i> Message or Questions</label>
+                    <textarea id="message" placeholder="Any questions or special requests..."></textarea>
+                </div>
+
+                <button type="submit" class="form-btn">
+                    <i class="fas fa-paper-plane"></i> Submit &amp; Join Now
+                </button>
+            </form>
+        </div>
+
+        <!-- ==================== FOOTER ==================== -->
+        <div class="footer">
+            <p>
+                <i class="fas fa-crown" style="color: #f1c40f; margin-right: 6px;"></i>
+                <a href="https://wefix.thewhitegraphics.com" target="_blank">wefix.thewhitegraphics.com</a>
+                &bull; #WEAREFIXING
+            </p>
+            <div class="social-links">
+                <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
