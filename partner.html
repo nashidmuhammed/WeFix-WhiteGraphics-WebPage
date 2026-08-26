@@ -460,15 +460,16 @@
             <i class="fas fa-tags"></i>
           </div>
           <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-yellow transition-colors">
-            4. 10% Cross-Discounts & Repeat Visits
+            4. WE ARE FIXING – Cross-Discounts for Customers
           </h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Customers gain a 10% discount on White Graphics agency services (video production, signage fabrication, web design, digital ads) while also being incentivized to return to your café for upcoming promotions.
+            Customers tagging both brands in a story receive a coupon for 10% off café products and 10% off White Graphics services (signage, video shoots, web design). This drives repeat café visits while promoting your brand.
           </p>
           <div class="flex items-center gap-2 text-xs font-bold text-brand-yellow">
-            <i class="fas fa-check-circle"></i> Partner discounts on White Graphics services
+            <i class="fas fa-check-circle"></i> Partner condition: 10% discount on café products
           </div>
         </div>
+
 
       </div>
     </section>
@@ -548,20 +549,34 @@
             </div>
 
             <!-- Item 4 -->
-            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
-              <div>
+            <div class="group relative bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-yellow/50 transition-all flex flex-col justify-between overflow-hidden">
+              <div class="transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
                 <div class="w-12 h-12 rounded-xl bg-brand-yellow/15 text-brand-yellow flex items-center justify-center text-xl mb-4">
-                  <i class="fas fa-percent"></i>
+                  <i class="fas fa-handshake"></i>
                 </div>
-                <h4 class="font-display font-bold text-lg text-white mb-2">10% Agency Partner Perks</h4>
+                <h4 class="font-display font-bold text-lg text-white mb-2">WE ARE FIXING – Partner Free</h4>
                 <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                  Special 10% partner discount on all White Graphics services: 3D illuminated signage, LED menu boards, social media video shoots, and print runs.
+                  Free setup, custom artwork, and personal delivery of campaign materials. Plus special commercial rates on all services.
                 </p>
               </div>
-              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
+              <div class="transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
                 <i class="fas fa-check"></i> Commercial Partner Rates
               </div>
+
+              <!-- Hover content overlay -->
+              <div class="absolute inset-0 bg-slate-950/95 p-6 flex flex-col justify-between opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
+                <div>
+                  <h4 class="font-display font-bold text-sm text-brand-yellow mb-2">Full Partner Benefits</h4>
+                  <p class="text-[11px] text-gray-300 leading-relaxed">
+                    We handle all design, print, and tech setup at no cost to you. Our experienced Marketing Executive will visit your café to deliver all campaign materials and explain everything in person. Custom artwork with your café's colors and typography is created before delivery. Partners also receive special commercial rates on White Graphics services.
+                  </p>
+                </div>
+                <div class="text-[11px] text-gray-400 italic">
+                  * 100% Free Agency Partner Program
+                </div>
+              </div>
             </div>
+
 
           </div>
 
@@ -786,15 +801,47 @@
           Watch the film that started the movement. Real stories, honest energy, and high-impact visual storytelling crafted by White Graphics.
         </p>
 
-        <!-- Video Wrapper with Glow -->
-        <div class="w-full relative rounded-[2rem] overflow-hidden shadow-2xl shadow-brand-orange/20 border-2 border-brand-yellow/30 aspect-video group mt-8 bg-slate-950">
-          <iframe src="https://www.youtube.com/embed/_QtMwhCOAt0"
-            title="White Graphics - We Are Fixing campaign film" 
-            class="w-full h-full relative z-10 border-0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen loading="lazy">
-          </iframe>
+        <!-- Dual Phone Mockups for Arabic and English Shorts -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto mt-8 justify-items-center">
+          
+          <!-- Arabic Player Card -->
+          <div class="w-full max-w-[280px] flex flex-col items-center">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-orange/20 text-brand-orange border border-brand-orange/30 rounded-full mb-3 shadow-sm">
+              <i class="fas fa-globe-asia text-[10px]"></i> العربية (Arabic)
+            </span>
+            <!-- Smartphone frame mockup -->
+            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(255,179,71,0.15)] group transition-all duration-300 hover:border-brand-orange/40">
+              <!-- Speaker notch -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-3.5 bg-slate-900 rounded-b-xl z-20"></div>
+              <iframe src="https://www.youtube.com/embed/t5jHcItzAUM"
+                title="WE ARE FIXING campaign film (Arabic)" 
+                class="w-full h-full border-0 relative z-10"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
+          <!-- English Player Card -->
+          <div class="w-full max-w-[280px] flex flex-col items-center">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-yellow/20 text-brand-yellow border border-brand-yellow/30 rounded-full mb-3 shadow-sm">
+              <i class="fas fa-globe text-[10px]"></i> English
+            </span>
+            <!-- Smartphone frame mockup -->
+            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(255,217,102,0.15)] group transition-all duration-300 hover:border-brand-yellow/40">
+              <!-- Speaker notch -->
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-3.5 bg-slate-900 rounded-b-xl z-20"></div>
+              <iframe src="https://www.youtube.com/embed/6h_wGHUd4Ak"
+                title="WE ARE FIXING campaign film (English)" 
+                class="w-full h-full border-0 relative z-10"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen loading="lazy">
+              </iframe>
+            </div>
+          </div>
+
         </div>
+
 
         <p class="text-xs text-gray-400 font-medium">
           Filmed, produced, and engineered by <strong class="text-white">White Graphics</strong> · Riyadh & Jeddah Studio
