@@ -52,13 +52,17 @@
             brand: {
               dark: '#070b14',
               darker: '#0a0f1e',
-              card: 'rgba(15, 23, 42, 0.75)',
-              cardHover: 'rgba(24, 36, 66, 0.85)',
-              orange: '#FFB347',
-              orangeDark: '#FF8C42',
-              yellow: '#FFD966',
-              gold: '#F5B041',
-              accent: '#FF6B4A',
+              card: 'rgba(12, 20, 38, 0.75)',
+              cardHover: 'rgba(20, 34, 64, 0.85)',
+              blue: '#23a0da',
+              blueLight: '#58c0f5',
+              blueDark: '#0b7bb5',
+              cyan: '#38bdf8',
+              accent: '#23a0da',
+              orange: '#23a0da',
+              orangeDark: '#0b7bb5',
+              yellow: '#38bdf8',
+              gold: '#58c0f5',
             }
           },
           animation: {
@@ -97,15 +101,15 @@
 
     /* Glassmorphism Styles */
     .glass-card {
-      background: rgba(13, 20, 36, 0.75);
+      background: rgba(12, 20, 38, 0.75);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255, 217, 102, 0.14);
+      border: 1px solid rgba(35, 160, 218, 0.18);
       box-shadow: 0 20px 40px -15px rgba(0, 0, 0, 0.6);
     }
 
     .glass-card-interactive {
-      background: rgba(15, 23, 42, 0.7);
+      background: rgba(13, 22, 42, 0.7);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       border: 1px solid rgba(255, 255, 255, 0.08);
@@ -113,42 +117,42 @@
     }
 
     .glass-card-interactive:hover {
-      background: rgba(22, 33, 58, 0.85);
-      border-color: rgba(255, 179, 71, 0.4);
+      background: rgba(18, 32, 60, 0.85);
+      border-color: rgba(35, 160, 218, 0.45);
       transform: translateY(-6px);
-      box-shadow: 0 25px 45px -10px rgba(255, 179, 71, 0.15);
+      box-shadow: 0 25px 45px -10px rgba(35, 160, 218, 0.22);
     }
 
     .text-gradient {
-      background: linear-gradient(135deg, #FFD966 0%, #FFB347 50%, #FF8C42 100%);
+      background: linear-gradient(135deg, #7dd3fc 0%, #23a0da 50%, #0284c7 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .text-gradient-red {
-      background: linear-gradient(135deg, #FFB347 0%, #FF6B4A 50%, #EF4444 100%);
+    .text-gradient-red, .text-gradient-blue {
+      background: linear-gradient(135deg, #bae6fd 0%, #38bdf8 50%, #23a0da 100%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .btn-gradient {
-      background: linear-gradient(135deg, #FFD966 0%, #FFB347 50%, #FF8C42 100%);
-      color: #070b14;
+      background: linear-gradient(135deg, #38bdf8 0%, #23a0da 55%, #0284c7 100%);
+      color: #041324;
       font-weight: 800;
       display: inline-flex;
       align-items: center;
       justify-content: center;
       transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-      box-shadow: 0 10px 30px -5px rgba(255, 179, 71, 0.35);
+      box-shadow: 0 10px 30px -5px rgba(35, 160, 218, 0.4);
       cursor: pointer;
     }
 
     .btn-gradient:hover {
       transform: translateY(-2px) scale(1.02);
-      box-shadow: 0 16px 35px -5px rgba(255, 179, 71, 0.5);
-      filter: brightness(1.05);
+      box-shadow: 0 16px 35px -5px rgba(35, 160, 218, 0.6);
+      filter: brightness(1.08);
     }
 
     /* Scroll reveal animation classes */
@@ -180,10 +184,10 @@
       width: 26px;
       height: 26px;
       border-radius: 50%;
-      background: linear-gradient(135deg, #FFD966, #FF8C42);
+      background: linear-gradient(135deg, #38bdf8, #23a0da);
       cursor: pointer;
       border: 3px solid #070b14;
-      box-shadow: 0 0 15px rgba(255, 179, 71, 0.8);
+      box-shadow: 0 0 15px rgba(35, 160, 218, 0.8);
       transition: transform 0.15s ease;
     }
 
@@ -220,15 +224,15 @@
   </script>
 </head>
 
-<body class="antialiased min-h-screen relative selection:bg-brand-orange selection:text-black">
+<body class="antialiased min-h-screen relative selection:bg-brand-blue selection:text-white">
 
   <!-- Background Ambient Glows & Grid -->
   <div class="fixed inset-0 pointer-events-none -z-20 bg-grid-pattern opacity-60"></div>
   
   <div class="fixed top-0 left-0 w-full h-full pointer-events-none -z-10 overflow-hidden">
-    <div class="absolute -top-[15%] left-[10%] w-[55%] h-[55%] rounded-full bg-brand-orange/15 blur-[140px] animate-pulse-slow"></div>
-    <div class="absolute top-[40%] right-[-10%] w-[45%] h-[45%] rounded-full bg-brand-yellow/12 blur-[130px] animate-pulse-slow" style="animation-delay: 2.5s;"></div>
-    <div class="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-brand-accent/10 blur-[150px] animate-pulse-slow" style="animation-delay: 1.2s;"></div>
+    <div class="absolute -top-[15%] left-[10%] w-[55%] h-[55%] rounded-full bg-brand-blue/15 blur-[140px] animate-pulse-slow"></div>
+    <div class="absolute top-[40%] right-[-10%] w-[45%] h-[45%] rounded-full bg-brand-cyan/12 blur-[130px] animate-pulse-slow" style="animation-delay: 2.5s;"></div>
+    <div class="absolute bottom-[-10%] left-[20%] w-[50%] h-[50%] rounded-full bg-sky-500/10 blur-[150px] animate-pulse-slow" style="animation-delay: 1.2s;"></div>
   </div>
 
   <!-- Top Sticky Navigation Bar -->
@@ -237,7 +241,7 @@
       
       <!-- Brand Logo -->
       <a href="partner.html" class="flex items-center gap-2 sm:gap-3 group shrink-0 min-w-0">
-        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/10 p-1 sm:p-1.5 border border-white/15 flex items-center justify-center group-hover:border-brand-yellow/60 transition-all shadow-md shrink-0">
+        <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white/10 p-1 sm:p-1.5 border border-white/15 flex items-center justify-center group-hover:border-brand-blue/60 transition-all shadow-md shrink-0">
           <img src="images/wg_logo.png" alt="White Graphics" class="w-full h-full object-contain">
         </div>
         <div class="flex flex-col min-w-0">
@@ -245,7 +249,7 @@
             <span class="font-display font-black text-white text-sm sm:text-lg tracking-wide whitespace-nowrap">
               WHITE GRAPHICS
             </span>
-            <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full bg-brand-orange/15 border border-brand-orange/40 text-brand-yellow text-[10px] font-black uppercase tracking-wider whitespace-nowrap">
+            <span class="hidden md:inline-flex items-center px-2 py-0.5 rounded-full bg-brand-blue/15 border border-brand-blue/40 text-brand-cyan text-[10px] font-black uppercase tracking-wider whitespace-nowrap">
               Café Network
             </span>
           </div>
@@ -255,18 +259,18 @@
 
       <!-- Desktop Nav Links -->
       <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-xs font-bold uppercase tracking-wider text-gray-300">
-        <a href="#why-join" class="hover:text-brand-yellow transition-colors whitespace-nowrap">Why Partner</a>
-        <a href="#turnkey-kit" class="hover:text-brand-yellow transition-colors whitespace-nowrap">What You Get</a>
-        <a href="#how-it-works" class="hover:text-brand-yellow transition-colors whitespace-nowrap">How It Works</a>
-        <a href="#roi-calculator" class="hover:text-brand-yellow transition-colors whitespace-nowrap">Reach Calculator</a>
-        <a href="#video-section" class="hover:text-brand-yellow transition-colors whitespace-nowrap">Video</a>
-        <a href="#faqs" class="hover:text-brand-yellow transition-colors whitespace-nowrap">FAQs</a>
+        <a href="#why-join" class="hover:text-brand-cyan transition-colors whitespace-nowrap">Why Partner</a>
+        <a href="#turnkey-kit" class="hover:text-brand-cyan transition-colors whitespace-nowrap">What You Get</a>
+        <a href="#how-it-works" class="hover:text-brand-cyan transition-colors whitespace-nowrap">How It Works</a>
+        <a href="#roi-calculator" class="hover:text-brand-cyan transition-colors whitespace-nowrap">Reach Calculator</a>
+        <a href="#video-section" class="hover:text-brand-cyan transition-colors whitespace-nowrap">Video</a>
+        <a href="#faqs" class="hover:text-brand-cyan transition-colors whitespace-nowrap">FAQs</a>
       </nav>
 
       <!-- Action Buttons -->
       <div class="flex items-center gap-2 sm:gap-3 shrink-0">
-        <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/5 border border-white/15 text-gray-300 text-xs font-bold hover:bg-white/10 hover:border-brand-orange/50 hover:text-white transition-all whitespace-nowrap">
-          <i class="fas fa-arrow-left text-[10px] text-brand-orange"></i>
+        <a href="index.html" class="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-white/5 border border-white/15 text-gray-300 text-xs font-bold hover:bg-white/10 hover:border-brand-blue/50 hover:text-white transition-all whitespace-nowrap">
+          <i class="fas fa-arrow-left text-[10px] text-brand-blue"></i>
           <span>Customer Campaign</span>
         </a>
         <a href="#partner-form" class="btn-gradient px-3.5 sm:px-5 py-1.5 sm:py-2.5 rounded-full text-[11px] sm:text-xs font-black uppercase tracking-wider flex items-center gap-1.5 sm:gap-2 whitespace-nowrap shadow-lg">
@@ -288,12 +292,12 @@
       
       <!-- Top Badges Row -->
       <div class="flex flex-wrap items-center justify-center gap-2.5 mb-6">
-        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-yellow/10 border border-brand-yellow/30 text-brand-yellow text-xs font-extrabold tracking-widest uppercase shadow-lg shadow-brand-yellow/5">
+        <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 border border-brand-blue/30 text-brand-cyan text-xs font-extrabold tracking-widest uppercase shadow-lg shadow-brand-blue/5">
           <span class="w-2 h-2 rounded-full bg-green-400 animate-ping"></span>
           ☕ Special Café Partnership Program 2026–2027
         </span>
         <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-300 text-xs font-bold uppercase tracking-wider">
-          <i class="fas fa-shield-alt text-brand-orange"></i> 100% Free · 0 SAR Cost
+          <i class="fas fa-shield-alt text-brand-blue"></i> 100% Free · 0 SAR Cost
         </span>
       </div>
 
@@ -307,13 +311,13 @@
 
       <!-- Subtitle Description -->
       <p class="text-base sm:text-xl text-gray-300 max-w-3xl font-medium leading-relaxed mb-8">
-        Partner your café with <strong class="text-white">White Graphics</strong> to turn daily coffee moments into viral organic Instagram stories, drive repeat visits, and unlock <span class="text-brand-yellow font-bold">10% discount perks</span> for your customers and your business.
+        Partner your café with <strong class="text-white">White Graphics</strong> to turn daily coffee moments into viral organic Instagram stories, drive repeat visits, and unlock <span class="text-brand-cyan font-bold">10% discount perks</span> for your customers and your business.
       </p>
 
       <!-- Key Benefits Quick Pills -->
       <div class="grid grid-cols-2 md:grid-cols-4 gap-3 w-full max-w-4xl mb-10 text-left">
         <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center shrink-0">
+          <div class="w-9 h-9 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center shrink-0">
             <i class="fas fa-gift text-sm"></i>
           </div>
           <div>
@@ -323,7 +327,7 @@
         </div>
 
         <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-brand-yellow/15 text-brand-yellow flex items-center justify-center shrink-0">
+          <div class="w-9 h-9 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center shrink-0">
             <i class="fas fa-camera text-sm"></i>
           </div>
           <div>
@@ -333,7 +337,7 @@
         </div>
 
         <div class="p-3.5 rounded-2xl bg-white/5 border border-white/10 backdrop-blur-md flex items-center gap-3">
-          <div class="w-9 h-9 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center shrink-0">
+          <div class="w-9 h-9 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center shrink-0">
             <i class="fas fa-percent text-sm"></i>
           </div>
           <div>
@@ -361,7 +365,7 @@
         </a>
         <a href="https://wa.me/+966575620715?text=Hello%20White%20Graphics%2C%20I%20am%20a%20caf%C3%A9%20owner%20interested%20in%20joining%20the%20WE%20ARE%20FIXING%20partnership%20campaign." 
            target="_blank"
-           class="px-7 py-4 rounded-2xl bg-white/5 border-2 border-brand-orange/50 text-brand-yellow font-extrabold text-sm hover:bg-brand-orange/10 hover:border-brand-yellow transition-all flex items-center justify-center gap-2.5 w-full sm:w-auto">
+           class="px-7 py-4 rounded-2xl bg-white/5 border-2 border-brand-blue/50 text-brand-cyan font-extrabold text-sm hover:bg-brand-blue/10 hover:border-brand-cyan transition-all flex items-center justify-center gap-2.5 w-full sm:w-auto">
           <i class="fab fa-whatsapp text-lg text-green-400"></i>
           <span>Instant WhatsApp Chat</span>
         </a>
@@ -370,13 +374,13 @@
       <!-- Trust Bar / Live Partner Network Ticker -->
       <div class="mt-14 w-full max-w-4xl pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-400 font-medium">
         <div class="flex items-center gap-2">
-          <i class="fas fa-map-marker-alt text-brand-orange"></i>
+          <i class="fas fa-map-marker-alt text-brand-blue"></i>
           <span>Active & Onboarding across <strong>Riyadh, Jeddah, Dammam & Eastern Province</strong></span>
         </div>
         <div class="flex items-center gap-3">
           <span>Featured partner:</span>
-          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900 border border-brand-yellow/30 text-white font-bold">
-            <img src="images/cafe_logos/grav_cafe.jpg" alt="Grav Cafe Logo" class="w-5 h-5 rounded-full object-cover border border-brand-yellow" onerror="this.style.display='none'">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-slate-900 border border-brand-blue/30 text-white font-bold">
+            <img src="images/cafe_logos/grav_cafe.jpg" alt="Grav Cafe Logo" class="w-5 h-5 rounded-full object-cover border border-brand-blue" onerror="this.style.display='none'">
             <span>Grav Café & Expanding Network</span>
           </div>
         </div>
@@ -389,7 +393,7 @@
          ========================================== -->
     <section id="why-join" class="reveal">
       <div class="text-center max-w-3xl mx-auto mb-12">
-        <div class="inline-block px-4 py-1 rounded-full border border-brand-orange/30 bg-brand-orange/10 text-brand-yellow text-xs font-black tracking-widest uppercase mb-3">
+        <div class="inline-block px-4 py-1 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-xs font-black tracking-widest uppercase mb-3">
           The Growth Engine
         </div>
         <h2 class="font-display text-3xl sm:text-5xl font-black tracking-tight text-white mb-4">
@@ -404,68 +408,68 @@
         
         <!-- Pillar 1 -->
         <div class="glass-card-interactive rounded-[2rem] p-8 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-orange/20 transition-all"></div>
-          <div class="w-14 h-14 rounded-2xl bg-brand-orange/15 border border-brand-orange/30 text-brand-orange flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-blue/20 transition-all"></div>
+          <div class="w-14 h-14 rounded-2xl bg-brand-blue/15 border border-brand-blue/30 text-brand-blue flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
             <i class="fas fa-eye"></i>
           </div>
-          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-yellow transition-colors">
+          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-cyan transition-colors">
             1. Explosive Organic Social Visibility
           </h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-4">
-            Every customer who records a 30-second fix story applies your café’s exclusive frame and tags <strong class="text-white">@yourcafe</strong> and <strong class="text-brand-orange">@white.Graphics</strong> on their Instagram Story, exposing your ambiance to their entire follower base for free.
+            Every customer who records a 30-second fix story applies your café’s exclusive frame and tags <strong class="text-white">@yourcafe</strong> and <strong class="text-brand-blue">@white.Graphics</strong> on their Instagram Story, exposing your ambiance to their entire follower base for free.
           </p>
-          <div class="flex items-center gap-2 text-xs font-bold text-brand-yellow">
+          <div class="flex items-center gap-2 text-xs font-bold text-brand-cyan">
             <i class="fas fa-check-circle"></i> Hundreds of organic impressions per customer
           </div>
         </div>
 
         <!-- Pillar 2 -->
         <div class="glass-card-interactive rounded-[2rem] p-8 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-yellow/20 transition-all"></div>
-          <div class="w-14 h-14 rounded-2xl bg-brand-yellow/15 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-cyan/20 transition-all"></div>
+          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/15 border border-brand-cyan/30 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
             <i class="fas fa-users"></i>
           </div>
-          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-yellow transition-colors">
+          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-cyan transition-colors">
             2. Authentic Community Building
           </h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-4">
             Transform ordinary coffee visits into an uplifting social movement. People love sharing moments of overcoming challenges, finishing tasks, or fixing a mood while having their favourite latte at your café.
           </p>
-          <div class="flex items-center gap-2 text-xs font-bold text-brand-yellow">
+          <div class="flex items-center gap-2 text-xs font-bold text-brand-cyan">
             <i class="fas fa-check-circle"></i> Creates emotional connection & loyalty
           </div>
         </div>
 
         <!-- Pillar 3 -->
         <div class="glass-card-interactive rounded-[2rem] p-8 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-orange/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-orange/20 transition-all"></div>
-          <div class="w-14 h-14 rounded-2xl bg-brand-orange/15 border border-brand-orange/30 text-brand-orange flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-blue/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-blue/20 transition-all"></div>
+          <div class="w-14 h-14 rounded-2xl bg-brand-blue/15 border border-brand-blue/30 text-brand-blue flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
             <i class="fas fa-gift"></i>
           </div>
-          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-yellow transition-colors">
+          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-cyan transition-colors">
             3. Zero Cost & 100% Free Turnkey Promotion
           </h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-4">
             White Graphics provides the complete creative toolkit: acrylic table stands, digital frames, sticker designs, and dedicated landing page spotlight. We manage production and software at <strong>zero charge to your café</strong>.
           </p>
-          <div class="flex items-center gap-2 text-xs font-bold text-brand-yellow">
+          <div class="flex items-center gap-2 text-xs font-bold text-brand-cyan">
             <i class="fas fa-check-circle"></i> We handle design, print & tech
           </div>
         </div>
 
         <!-- Pillar 4 -->
         <div class="glass-card-interactive rounded-[2rem] p-8 relative overflow-hidden group">
-          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-yellow/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-yellow/20 transition-all"></div>
-          <div class="w-14 h-14 rounded-2xl bg-brand-yellow/15 border border-brand-yellow/30 text-brand-yellow flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-brand-cyan/10 rounded-full blur-3xl pointer-events-none group-hover:bg-brand-cyan/20 transition-all"></div>
+          <div class="w-14 h-14 rounded-2xl bg-brand-cyan/15 border border-brand-cyan/30 text-brand-cyan flex items-center justify-center text-2xl mb-6 group-hover:scale-110 transition-transform">
             <i class="fas fa-tags"></i>
           </div>
-          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-yellow transition-colors">
+          <h3 class="font-display text-2xl font-black text-white mb-3 tracking-tight group-hover:text-brand-cyan transition-colors">
             4. WE ARE FIXING – Cross-Discounts for Customers
           </h3>
           <p class="text-gray-300 text-sm leading-relaxed mb-4">
             Customers tagging both brands in a story receive a coupon for 10% off café products and 10% off White Graphics services (signage, video shoots, web design). This drives repeat café visits while promoting your brand.
           </p>
-          <div class="flex items-center gap-2 text-xs font-bold text-brand-yellow">
+          <div class="flex items-center gap-2 text-xs font-bold text-brand-cyan">
             <i class="fas fa-check-circle"></i> Partner condition: 10% discount on café products
           </div>
         </div>
@@ -478,15 +482,15 @@
          WHAT YOU GET: TURNKEY PARTNER KIT
          ========================================== -->
     <section id="turnkey-kit" class="reveal relative">
-      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden border border-brand-orange/20">
+      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden border border-brand-blue/20">
         
         <!-- Background Glows -->
-        <div class="absolute -top-20 -left-20 w-72 h-72 bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none"></div>
-        <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-brand-yellow/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute -top-20 -left-20 w-72 h-72 bg-brand-blue/20 rounded-full blur-[100px] pointer-events-none"></div>
+        <div class="absolute -bottom-20 -right-20 w-72 h-72 bg-brand-cyan/20 rounded-full blur-[100px] pointer-events-none"></div>
 
         <div class="relative z-10">
           <div class="text-center max-w-3xl mx-auto mb-12">
-            <span class="inline-block px-4 py-1.5 rounded-full border border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow text-xs font-extrabold tracking-widest uppercase mb-3">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-xs font-extrabold tracking-widest uppercase mb-3">
               Included Free For Partners
             </span>
             <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
@@ -501,9 +505,9 @@
           <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             
             <!-- Item 1 -->
-            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-orange/50 transition-all flex flex-col justify-between">
+            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-blue/50 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-xl mb-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center text-xl mb-4">
                   <i class="fas fa-qrcode"></i>
                 </div>
                 <h4 class="font-display font-bold text-lg text-white mb-2">Acrylic Table QR Stands</h4>
@@ -511,15 +515,15 @@
                   High-end luxury acrylic table tent cards featuring your café name, campaign instructions, and direct scan-to-claim QR code.
                 </p>
               </div>
-              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
+              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-cyan font-semibold flex items-center gap-1.5">
                 <i class="fas fa-check"></i> Physical Delivery to Café
               </div>
             </div>
 
             <!-- Item 2 -->
-            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-yellow/50 transition-all flex flex-col justify-between">
+            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-cyan/50 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-brand-yellow/15 text-brand-yellow flex items-center justify-center text-xl mb-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center text-xl mb-4">
                   <i class="fas fa-mobile-screen-button"></i>
                 </div>
                 <h4 class="font-display font-bold text-lg text-white mb-2">Custom Instagram Frame</h4>
@@ -527,31 +531,31 @@
                   Digital PNG overlay frame pre-configured with the #WeAreFixing badge and your café’s official logo & handle.
                 </p>
               </div>
-              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
+              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-cyan font-semibold flex items-center gap-1.5">
                 <i class="fas fa-check"></i> 1-Click Customer Download
               </div>
             </div>
 
             <!-- Item 3 -->
-            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-orange/50 transition-all flex flex-col justify-between">
+            <div class="bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-blue/50 transition-all flex flex-col justify-between">
               <div>
-                <div class="w-12 h-12 rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center text-xl mb-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center text-xl mb-4">
                   <i class="fas fa-globe"></i>
                 </div>
                 <h4 class="font-display font-bold text-lg text-white mb-2">Dedicated Landing Link</h4>
                 <p class="text-xs text-gray-400 leading-relaxed mb-4">
-                  Your custom URL <code class="text-brand-yellow text-[10px]">?cafe=yourcafe</code> featuring your logo, verified partner spotlight, and auto-tagged copy buttons.
+                  Your custom URL <code class="text-brand-cyan text-[10px]">?cafe=yourcafe</code> featuring your logo, verified partner spotlight, and auto-tagged copy buttons.
                 </p>
               </div>
-              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
+              <div class="p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-cyan font-semibold flex items-center gap-1.5">
                 <i class="fas fa-check"></i> Instant Verification & Leads
               </div>
             </div>
 
             <!-- Item 4 -->
-            <div class="group relative bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-yellow/50 transition-all flex flex-col justify-between overflow-hidden">
+            <div class="group relative bg-black/40 backdrop-blur-md rounded-2xl p-6 border border-white/10 hover:border-brand-cyan/50 transition-all flex flex-col justify-between overflow-hidden">
               <div class="transition-all duration-300 group-hover:opacity-0 group-hover:scale-95">
-                <div class="w-12 h-12 rounded-xl bg-brand-yellow/15 text-brand-yellow flex items-center justify-center text-xl mb-4">
+                <div class="w-12 h-12 rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center text-xl mb-4">
                   <i class="fas fa-handshake"></i>
                 </div>
                 <h4 class="font-display font-bold text-lg text-white mb-2">WE ARE FIXING – Partner Free</h4>
@@ -559,14 +563,14 @@
                   Free setup, custom artwork, and personal delivery of campaign materials. Plus special commercial rates on all services.
                 </p>
               </div>
-              <div class="transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-yellow font-semibold flex items-center gap-1.5">
+              <div class="transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 p-2.5 rounded-xl bg-white/5 text-[11px] text-brand-cyan font-semibold flex items-center gap-1.5">
                 <i class="fas fa-check"></i> Commercial Partner Rates
               </div>
 
               <!-- Hover content overlay -->
               <div class="absolute inset-0 bg-slate-950/95 p-6 flex flex-col justify-between opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 pointer-events-none group-hover:pointer-events-auto">
                 <div>
-                  <h4 class="font-display font-bold text-sm text-brand-yellow mb-2">Full Partner Benefits</h4>
+                  <h4 class="font-display font-bold text-sm text-brand-cyan mb-2">Full Partner Benefits</h4>
                   <p class="text-[11px] text-gray-300 leading-relaxed">
                     We handle all design, print, and tech setup at no cost to you. Our experienced Marketing Executive will visit your café to deliver all campaign materials and explain everything in person. Custom artwork with your café's colors and typography is created before delivery. Partners also receive special commercial rates on White Graphics services.
                   </p>
@@ -583,7 +587,7 @@
           <!-- Bottom Visual Showcase -->
           <div class="mt-10 p-6 sm:p-8 rounded-3xl bg-slate-900/80 border border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-5">
-              <div class="w-16 h-24 sm:w-20 sm:h-28 rounded-2xl bg-black/60 border border-brand-orange/40 p-2 shadow-2xl shrink-0 flex items-center justify-center">
+              <div class="w-16 h-24 sm:w-20 sm:h-28 rounded-2xl bg-black/60 border border-brand-blue/40 p-2 shadow-2xl shrink-0 flex items-center justify-center">
                 <img src="images/frame_we_are_fixing.png" alt="We Are Fixing Frame Kit" class="h-full object-contain filter drop-shadow">
               </div>
               <div>
@@ -607,7 +611,7 @@
          ========================================== -->
     <section id="how-it-works" class="reveal">
       <div class="text-center max-w-3xl mx-auto mb-14">
-        <div class="inline-block px-4 py-1 rounded-full border border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow text-xs font-black tracking-widest uppercase mb-3">
+        <div class="inline-block px-4 py-1 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-xs font-black tracking-widest uppercase mb-3">
           Simple Onboarding
         </div>
         <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-4">
@@ -622,11 +626,11 @@
         
         <!-- Step 1 -->
         <div class="glass-card-interactive rounded-[2rem] p-7 flex flex-col justify-between relative group">
-          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange text-black font-black flex items-center justify-center text-sm shadow-lg">
+          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-black flex items-center justify-center text-sm shadow-lg">
             1
           </div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange text-xl mb-5 group-hover:bg-brand-orange group-hover:text-black transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue text-xl mb-5 group-hover:bg-brand-blue group-hover:text-slate-950 transition-all">
               <i class="fas fa-pen-to-square"></i>
             </div>
             <h3 class="font-display font-bold text-xl text-white mb-2.5">1. Quick 2-Min Signup</h3>
@@ -634,16 +638,16 @@
               Submit your café name, Instagram handle, and table count using our lead form below or via WhatsApp.
             </p>
           </div>
-          <span class="text-[11px] font-bold text-brand-yellow/90 uppercase tracking-wider">Time: ~2 Minutes</span>
+          <span class="text-[11px] font-bold text-brand-cyan/90 uppercase tracking-wider">Time: ~2 Minutes</span>
         </div>
 
         <!-- Step 2 -->
         <div class="glass-card-interactive rounded-[2rem] p-7 flex flex-col justify-between relative group">
-          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange text-black font-black flex items-center justify-center text-sm shadow-lg">
+          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-black flex items-center justify-center text-sm shadow-lg">
             2
           </div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-yellow text-xl mb-5 group-hover:bg-brand-yellow group-hover:text-black transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-cyan text-xl mb-5 group-hover:bg-brand-cyan group-hover:text-slate-950 transition-all">
               <i class="fas fa-box-open"></i>
             </div>
             <h3 class="font-display font-bold text-xl text-white mb-2.5">2. We Deliver Assets</h3>
@@ -651,16 +655,16 @@
               Our team generates your custom QR code, digital frames, and ships your physical acrylic stands within 48 hours.
             </p>
           </div>
-          <span class="text-[11px] font-bold text-brand-yellow/90 uppercase tracking-wider">Time: 24 to 48 Hours</span>
+          <span class="text-[11px] font-bold text-brand-cyan/90 uppercase tracking-wider">Time: 24 to 48 Hours</span>
         </div>
 
         <!-- Step 3 -->
         <div class="glass-card-interactive rounded-[2rem] p-7 flex flex-col justify-between relative group">
-          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange text-black font-black flex items-center justify-center text-sm shadow-lg">
+          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-black flex items-center justify-center text-sm shadow-lg">
             3
           </div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-orange text-xl mb-5 group-hover:bg-brand-orange group-hover:text-black transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-blue text-xl mb-5 group-hover:bg-brand-blue group-hover:text-slate-950 transition-all">
               <i class="fas fa-utensils"></i>
             </div>
             <h3 class="font-display font-bold text-xl text-white mb-2.5">3. Place On Tables</h3>
@@ -668,16 +672,16 @@
               Place the stands on tables and counters. Customers scan, watch the campaign film, and record a video of what they "fixed" today.
             </p>
           </div>
-          <span class="text-[11px] font-bold text-brand-yellow/90 uppercase tracking-wider">Effortless for Staff</span>
+          <span class="text-[11px] font-bold text-brand-cyan/90 uppercase tracking-wider">Effortless for Staff</span>
         </div>
 
         <!-- Step 4 -->
         <div class="glass-card-interactive rounded-[2rem] p-7 flex flex-col justify-between relative group">
-          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-yellow to-brand-orange text-black font-black flex items-center justify-center text-sm shadow-lg">
+          <div class="absolute -top-3.5 -right-3.5 w-9 h-9 rounded-full bg-gradient-to-r from-brand-cyan to-brand-blue text-slate-950 font-black flex items-center justify-center text-sm shadow-lg">
             4
           </div>
           <div>
-            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-yellow text-xl mb-5 group-hover:bg-brand-yellow group-hover:text-black transition-all">
+            <div class="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-cyan text-xl mb-5 group-hover:bg-brand-cyan group-hover:text-slate-950 transition-all">
               <i class="fas fa-chart-line"></i>
             </div>
             <h3 class="font-display font-bold text-xl text-white mb-2.5">4. Viral Footfall & ROI</h3>
@@ -695,13 +699,13 @@
          INTERACTIVE ROI & ESTIMATOR CALCULATOR
          ========================================== -->
     <section id="roi-calculator" class="reveal relative">
-      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden border border-brand-yellow/20">
+      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 relative overflow-hidden border border-brand-blue/20">
         
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <!-- Left Controls Column -->
           <div class="lg:col-span-6 space-y-6">
-            <div class="inline-block px-3.5 py-1 rounded-full bg-brand-orange/15 border border-brand-orange/30 text-brand-yellow text-xs font-bold uppercase tracking-wider">
+            <div class="inline-block px-3.5 py-1 rounded-full bg-brand-blue/15 border border-brand-blue/30 text-brand-cyan text-xs font-bold uppercase tracking-wider">
               Engagement Estimator
             </div>
             <h2 class="font-display text-3xl sm:text-4xl font-black text-white tracking-tight leading-tight">
@@ -717,7 +721,7 @@
                 <label for="visitorSlider" class="text-xs font-bold uppercase tracking-wider text-gray-300">
                   Daily Café Visitors / Table Traffic:
                 </label>
-                <span id="visitorCountDisplay" class="text-xl font-black text-brand-yellow font-display">
+                <span id="visitorCountDisplay" class="text-xl font-black text-brand-cyan font-display">
                   120 Visitors / day
                 </span>
               </div>
@@ -735,25 +739,25 @@
           <div class="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
             
             <div class="bg-slate-900/90 p-6 rounded-2xl border border-white/10 text-center relative overflow-hidden group">
-              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3">
+              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center mb-3">
                 <i class="fas fa-video"></i>
               </div>
               <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Monthly Tagged Stories</p>
               <h4 id="calcStories" class="text-3xl sm:text-4xl font-black text-white font-display">
                 ~540
               </h4>
-              <p class="text-[11px] text-brand-orange mt-2 font-medium">Stories tagging your café handle</p>
+              <p class="text-[11px] text-brand-cyan mt-2 font-medium">Stories tagging your café handle</p>
             </div>
 
-            <div class="bg-slate-900/90 p-6 rounded-2xl border border-brand-yellow/30 text-center relative overflow-hidden group shadow-lg shadow-brand-yellow/5">
-              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-yellow/15 text-brand-yellow flex items-center justify-center mb-3">
+            <div class="bg-slate-900/90 p-6 rounded-2xl border border-brand-blue/30 text-center relative overflow-hidden group shadow-lg shadow-brand-blue/5">
+              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-cyan/15 text-brand-cyan flex items-center justify-center mb-3">
                 <i class="fas fa-users-viewfinder"></i>
               </div>
               <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Estimated Organic Impressions</p>
               <h4 id="calcImpressions" class="text-3xl sm:text-4xl font-black text-gradient font-display">
                 ~189,000
               </h4>
-              <p class="text-[11px] text-brand-yellow mt-2 font-medium">Local views across KSA</p>
+              <p class="text-[11px] text-brand-cyan mt-2 font-medium">Local views across KSA</p>
             </div>
 
             <div class="bg-slate-900/90 p-6 rounded-2xl border border-white/10 text-center relative overflow-hidden group">
@@ -768,14 +772,14 @@
             </div>
 
             <div class="bg-slate-900/90 p-6 rounded-2xl border border-white/10 text-center relative overflow-hidden group">
-              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-orange/15 text-brand-orange flex items-center justify-center mb-3">
+              <div class="w-10 h-10 mx-auto rounded-xl bg-brand-blue/15 text-brand-blue flex items-center justify-center mb-3">
                 <i class="fas fa-bullhorn"></i>
               </div>
               <p class="text-xs text-gray-400 font-bold uppercase tracking-wider mb-1">Equivalent Ad Value</p>
               <h4 id="calcAdValue" class="text-3xl sm:text-4xl font-black text-white font-display">
                 ~SAR 7,500
               </h4>
-              <p class="text-[11px] text-brand-orange mt-2 font-medium">In organic influencer reach</p>
+              <p class="text-[11px] text-brand-cyan mt-2 font-medium">In organic influencer reach</p>
             </div>
 
           </div>
@@ -790,8 +794,8 @@
          ========================================== -->
     <section id="video-section" class="reveal relative text-center">
       <div class="max-w-4xl mx-auto space-y-6">
-        <div class="inline-block px-4 py-1.5 rounded-full border border-brand-orange/30 bg-brand-orange/10 text-brand-yellow text-xs font-black tracking-widest uppercase mb-2">
-          <i class="fas fa-play-circle mr-1.5 text-brand-orange"></i> Campaign Spotlight Film
+        <div class="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-xs font-black tracking-widest uppercase mb-2">
+          <i class="fas fa-play-circle mr-1.5 text-brand-blue"></i> Campaign Spotlight Film
         </div>
         
         <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight">
@@ -806,11 +810,11 @@
           
           <!-- Arabic Player Card -->
           <div class="w-full max-w-[280px] flex flex-col items-center">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-orange/20 text-brand-orange border border-brand-orange/30 rounded-full mb-3 shadow-sm">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-blue/20 text-brand-cyan border border-brand-blue/30 rounded-full mb-3 shadow-sm">
               <i class="fas fa-globe-asia text-[10px]"></i> العربية (Arabic)
             </span>
             <!-- Smartphone frame mockup -->
-            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(255,179,71,0.15)] group transition-all duration-300 hover:border-brand-orange/40">
+            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(35,160,218,0.2)] group transition-all duration-300 hover:border-brand-blue/40">
               <!-- Speaker notch -->
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-3.5 bg-slate-900 rounded-b-xl z-20"></div>
               <iframe src="https://www.youtube.com/embed/t5jHcItzAUM"
@@ -824,11 +828,11 @@
 
           <!-- English Player Card -->
           <div class="w-full max-w-[280px] flex flex-col items-center">
-            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-yellow/20 text-brand-yellow border border-brand-yellow/30 rounded-full mb-3 shadow-sm">
+            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 rounded-full mb-3 shadow-sm">
               <i class="fas fa-globe text-[10px]"></i> English
             </span>
             <!-- Smartphone frame mockup -->
-            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(255,217,102,0.15)] group transition-all duration-300 hover:border-brand-yellow/40">
+            <div class="w-full aspect-[9/16] relative rounded-[2rem] overflow-hidden border-[6px] border-slate-900 bg-black shadow-[0_20px_40px_-10px_rgba(56,189,248,0.2)] group transition-all duration-300 hover:border-brand-cyan/40">
               <!-- Speaker notch -->
               <div class="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-3.5 bg-slate-900 rounded-b-xl z-20"></div>
               <iframe src="https://www.youtube.com/embed/6h_wGHUd4Ak"
@@ -853,16 +857,16 @@
          LEAD GENERATION ONBOARDING FORM
          ========================================== -->
     <section id="partner-form" class="reveal relative">
-      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 lg:p-16 relative overflow-hidden border-2 border-brand-yellow/40 shadow-[0_0_60px_rgba(255,179,71,0.15)]">
+      <div class="glass-card rounded-[2.5rem] p-8 sm:p-12 lg:p-16 relative overflow-hidden border-2 border-brand-blue/40 shadow-[0_0_60px_rgba(35,160,218,0.2)]">
         
         <!-- Glow accents -->
-        <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-yellow/20 rounded-full blur-[110px] pointer-events-none"></div>
-        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-orange/20 rounded-full blur-[110px] pointer-events-none"></div>
+        <div class="absolute -top-24 -right-24 w-80 h-80 bg-brand-cyan/20 rounded-full blur-[110px] pointer-events-none"></div>
+        <div class="absolute -bottom-24 -left-24 w-80 h-80 bg-brand-blue/20 rounded-full blur-[110px] pointer-events-none"></div>
 
         <div class="max-w-3xl mx-auto relative z-10">
           
           <div class="text-center mb-10">
-            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-orange/15 border border-brand-orange/30 text-brand-yellow text-xs font-black tracking-widest uppercase mb-3">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/15 border border-brand-blue/30 text-brand-cyan text-xs font-black tracking-widest uppercase mb-3">
               <i class="fas fa-handshake"></i> Official Onboarding Form
             </span>
             <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
@@ -882,76 +886,76 @@
             <!-- Row 1: Cafe Name & Owner Name -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="group">
-                <label for="cafeName" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-store text-brand-orange mr-1.5"></i> Café Name *
+                <label for="cafeName" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-store text-brand-blue mr-1.5"></i> Café Name *
                 </label>
                 <input type="text" id="cafeName" name="Cafe_Name" placeholder="e.g. Gravity Café" required
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
 
               <div class="group">
-                <label for="ownerName" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-user text-brand-orange mr-1.5"></i> Owner / Manager Name *
+                <label for="ownerName" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-user text-brand-blue mr-1.5"></i> Owner / Manager Name *
                 </label>
                 <input type="text" id="ownerName" name="Contact_Person" placeholder="Full Name" required
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
             </div>
 
             <!-- Row 2: Phone & Email -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="group">
-                <label for="phone" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-phone text-brand-orange mr-1.5"></i> WhatsApp / Phone Number *
+                <label for="phone" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-phone text-brand-blue mr-1.5"></i> WhatsApp / Phone Number *
                 </label>
                 <input type="tel" id="phone" name="Phone_Number" placeholder="+966 5X XXX XXXX" required
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
 
               <div class="group">
-                <label for="email" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-envelope text-brand-orange mr-1.5"></i> Email Address *
+                <label for="email" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-envelope text-brand-blue mr-1.5"></i> Email Address *
                 </label>
                 <input type="email" id="email" name="Email_Address" placeholder="owner@yourcafe.com" required
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
             </div>
 
             <!-- Row 3: City & Instagram -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="group">
-                <label for="location" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-location-dot text-brand-orange mr-1.5"></i> City / Branch District *
+                <label for="location" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-location-dot text-brand-blue mr-1.5"></i> City / Branch District *
                 </label>
                 <input type="text" id="location" name="City_Location" placeholder="e.g. Riyadh, Al Olaya" required
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
 
               <div class="group">
-                <label for="instagram" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fab fa-instagram text-brand-orange mr-1.5"></i> Café Instagram Handle
+                <label for="instagram" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fab fa-instagram text-brand-blue mr-1.5"></i> Café Instagram Handle
                 </label>
                 <input type="text" id="instagram" name="Instagram_Handle" placeholder="@yourcafe"
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
             </div>
 
             <!-- Row 4: Tables & Branches -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div class="group">
-                <label for="tables" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-chair text-brand-orange mr-1.5"></i> Approximate Number of Tables
+                <label for="tables" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-chair text-brand-blue mr-1.5"></i> Approximate Number of Tables
                 </label>
                 <input type="number" id="tables" name="Table_Count" placeholder="e.g. 20" min="1"
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all">
               </div>
 
               <div class="group">
-                <label for="branchCount" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                  <i class="fas fa-building text-brand-orange mr-1.5"></i> Number of Branches Joining
+                <label for="branchCount" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                  <i class="fas fa-building text-brand-blue mr-1.5"></i> Number of Branches Joining
                 </label>
                 <select id="branchCount" name="Branch_Count"
-                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white font-medium transition-all">
+                  class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white font-medium transition-all">
                   <option value="1 Branch" class="bg-slate-900 text-white">1 Branch (Single Location)</option>
                   <option value="2-3 Branches" class="bg-slate-900 text-white">2 - 3 Branches</option>
                   <option value="4-10 Branches" class="bg-slate-900 text-white">4 - 10 Branches</option>
@@ -962,11 +966,11 @@
 
             <!-- Message / Notes -->
             <div class="group">
-              <label for="message" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-orange transition-colors">
-                <i class="fas fa-comment-dots text-brand-orange mr-1.5"></i> Special Questions or Requests (Optional)
+              <label for="message" class="block text-xs font-bold tracking-wider text-gray-300 uppercase mb-2 group-focus-within:text-brand-blue transition-colors">
+                <i class="fas fa-comment-dots text-brand-blue mr-1.5"></i> Special Questions or Requests (Optional)
               </label>
               <textarea id="message" name="Message_Notes" rows="3" placeholder="Tell us about your launch preferences or questions..."
-                class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-orange/50 focus:border-brand-orange outline-none text-white placeholder-gray-500 font-medium transition-all resize-none"></textarea>
+                class="w-full px-5 py-3.5 bg-black/60 border border-white/15 rounded-2xl focus:ring-2 focus:ring-brand-blue/50 focus:border-brand-blue outline-none text-white placeholder-gray-500 font-medium transition-all resize-none"></textarea>
             </div>
 
             <!-- Submit Button -->
@@ -1014,7 +1018,7 @@
          ========================================== -->
     <section id="faqs" class="reveal max-w-4xl mx-auto w-full">
       <div class="text-center mb-10">
-        <span class="inline-block px-4 py-1.5 rounded-full border border-brand-yellow/30 bg-brand-yellow/10 text-brand-yellow text-xs font-black tracking-widest uppercase mb-3">
+        <span class="inline-block px-4 py-1.5 rounded-full border border-brand-blue/30 bg-brand-blue/10 text-brand-cyan text-xs font-black tracking-widest uppercase mb-3">
           Got Questions?
         </span>
         <h2 class="font-display text-3xl sm:text-5xl font-black text-white tracking-tight mb-3">
@@ -1029,9 +1033,9 @@
         
         <!-- FAQ 1 -->
         <div class="glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
-          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-yellow transition-colors">
+          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-cyan transition-colors">
             <span>Is there any financial cost for our café to join?</span>
-            <i class="fas fa-chevron-down text-sm text-brand-orange transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm text-brand-blue transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
             <strong>No, zero cost.</strong> White Graphics manufactures and delivers the table stand QR acrylics, digital story frames, and provides the campaign landing technology completely free of charge as part of our nationwide street and digital campaign initiative.
@@ -1040,9 +1044,9 @@
 
         <!-- FAQ 2 -->
         <div class="glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
-          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-yellow transition-colors">
+          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-cyan transition-colors">
             <span>How does the 10% discount work for customers and our café?</span>
-            <i class="fas fa-chevron-down text-sm text-brand-orange transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm text-brand-blue transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
             Customers who post their #WeAreFixing story and tag both our accounts receive a verified 10% OFF voucher for White Graphics services (video, signage, printing, marketing). In addition, your café gains access to preferred 10% partner pricing across all White Graphics fabrication and creative production.
@@ -1051,20 +1055,20 @@
 
         <!-- FAQ 3 -->
         <div class="glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
-          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-yellow transition-colors">
+          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-cyan transition-colors">
             <span>Will our café logo and social handle be on the campaign materials?</span>
-            <i class="fas fa-chevron-down text-sm text-brand-orange transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm text-brand-blue transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
-            Yes, absolutely. We create custom table tent artwork and provide your dedicated URL spotlight (<code class="text-brand-yellow">wefix.thewhitegraphics.com/?cafe=yourcafe</code>) so when your customers scan, your café logo, title, and quick-copy tags are front and center.
+            Yes, absolutely. We create custom table tent artwork and provide your dedicated URL spotlight (<code class="text-brand-cyan">wefix.thewhitegraphics.com/?cafe=yourcafe</code>) so when your customers scan, your café logo, title, and quick-copy tags are front and center.
           </div>
         </div>
 
         <!-- FAQ 4 -->
         <div class="glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
-          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-yellow transition-colors">
+          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-cyan transition-colors">
             <span>What do our baristas or floor staff need to do?</span>
-            <i class="fas fa-chevron-down text-sm text-brand-orange transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm text-brand-blue transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
             Zero technical burden on your staff. The table stands are completely self-explanatory with a 1-2-3 guide. Staff simply place the acrylics on tables. Optionally, baristas can invite customers with a quick phrase: <em>"Scan the table code to share what you fixed today & get 10% off!"</em>
@@ -1073,9 +1077,9 @@
 
         <!-- FAQ 5 -->
         <div class="glass-card rounded-2xl border border-white/10 overflow-hidden transition-all">
-          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-yellow transition-colors">
+          <button class="faq-toggle w-full p-5 sm:p-6 text-left flex items-center justify-between gap-4 font-display font-bold text-base sm:text-lg text-white hover:text-brand-cyan transition-colors">
             <span>Can multi-branch cafés or specialty coffee chains participate?</span>
-            <i class="fas fa-chevron-down text-sm text-brand-orange transition-transform duration-300"></i>
+            <i class="fas fa-chevron-down text-sm text-brand-blue transition-transform duration-300"></i>
           </button>
           <div class="faq-content hidden px-5 sm:px-6 pb-6 text-xs sm:text-sm text-gray-300 leading-relaxed border-t border-white/5 pt-4">
             Yes! We accommodate single boutique cafes as well as multi-branch coffee roasters and chains across Riyadh, Jeddah, Dammam, and other Saudi cities. We supply customized table kits for each branch.
@@ -1130,14 +1134,14 @@
 
       <!-- Links Row -->
       <div class="flex flex-wrap justify-center gap-6 text-xs font-semibold text-gray-300">
-        <a href="index.html" class="hover:text-brand-yellow transition-colors">Customer Campaign Page</a>
-        <a href="https://thewhitegraphics.com" target="_blank" class="hover:text-brand-yellow transition-colors">Official Agency Website</a>
-        <a href="#turnkey-kit" class="hover:text-brand-yellow transition-colors">Turnkey Partner Kit</a>
-        <a href="#partner-form" class="hover:text-brand-yellow transition-colors">Join Café Network</a>
+        <a href="index.html" class="hover:text-brand-cyan transition-colors">Customer Campaign Page</a>
+        <a href="https://thewhitegraphics.com" target="_blank" class="hover:text-brand-cyan transition-colors">Official Agency Website</a>
+        <a href="#turnkey-kit" class="hover:text-brand-cyan transition-colors">Turnkey Partner Kit</a>
+        <a href="#partner-form" class="hover:text-brand-cyan transition-colors">Join Café Network</a>
       </div>
 
       <div class="pt-4 border-t border-white/5 w-full max-w-2xl text-[11px] text-gray-500 space-y-1">
-        <p>Riyadh · Jeddah · Dammam · Eastern Province | <a href="mailto:hello@thewhitegraphics.com" class="text-brand-orange hover:underline">hello@thewhitegraphics.com</a></p>
+        <p>Riyadh · Jeddah · Dammam · Eastern Province | <a href="mailto:hello@thewhitegraphics.com" class="text-brand-blue hover:underline">hello@thewhitegraphics.com</a></p>
         <p>© 2026–2027 White Graphics. "WE ARE FIXING" is a registered trademark campaign. All rights reserved.</p>
       </div>
 
@@ -1146,7 +1150,7 @@
 
   <!-- Toast Notification System -->
   <div id="partnerToast"
-    class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-xl text-white px-6 py-3.5 rounded-full shadow-2xl border border-brand-yellow/40 text-xs sm:text-sm font-semibold z-50 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
+    class="fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900/95 backdrop-blur-xl text-white px-6 py-3.5 rounded-full shadow-2xl border border-brand-blue/40 text-xs sm:text-sm font-semibold z-50 transition-all duration-300 opacity-0 pointer-events-none translate-y-4">
     Message
   </div>
 
